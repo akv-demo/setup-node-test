@@ -14,7 +14,17 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: bounce version
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: publish to npmjs
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          export A=`date +%s`; sed -ibak -e "s/1\.0\..*/1.0.$A/" pkg1/package.json
-          cat pkg1/package.json
+          cd pkg1
+          export A=`date +%s`
+          sed -ibak -e "s/1\.0\.0/1.0.$A/" package.json
+          cat package.json
+          npm publish
