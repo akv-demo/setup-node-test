@@ -38,7 +38,7 @@ jobs:
         with:
           node-version: 'v16.13.2'
           scope: '@akv-demo'
-          registry-url: 'npm.pkg.github.com'
+          registry-url: 'npm.pkg.github.com/akv-demo'
 
       - name: publish to github
         env:
