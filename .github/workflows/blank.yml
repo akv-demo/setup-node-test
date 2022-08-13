@@ -27,7 +27,6 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: publish to npmjs
-        if: ${{ false }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
@@ -47,4 +46,4 @@ jobs:
         run: |
           cat $NPM_CONFIG_USERCONFIG
           cd pkg1
-          npm publish || cat ~/.npm/_logs/*
+          npm publish 
