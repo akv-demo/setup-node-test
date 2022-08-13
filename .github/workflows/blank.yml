@@ -27,6 +27,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: publish to npmjs
+        if: ${{ false }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
@@ -37,7 +38,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 'v16.13.2'
-          scope: '@akvdemo'
+          scope: '@akv-demo'
           registry-url: 'npm.pkg.github.com/akv-demo'
 
       - name: publish to github
