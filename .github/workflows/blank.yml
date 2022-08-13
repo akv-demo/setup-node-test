@@ -30,7 +30,10 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          cat ~/.npmrc
+          ls -la ~/
+          ls -la .
+          cd pkg1
+          ls -la .
           npm publish
 
       - uses: actions/setup-node@v3
@@ -43,5 +46,8 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
         run: |
-          cat ~/.npmrc
+          ls -la ~/
+          ls -la .
+          cd pkg1
+          ls -la .
           npm publish
