@@ -37,7 +37,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 'v16.13.2'
-          scope: '@akv-demo'
+          scope: '@akvdemo'
           registry-url: 'npm.pkg.github.com/akv-demo'
 
       - name: publish to github
