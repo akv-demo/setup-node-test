@@ -30,10 +30,8 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          ls -la ~/
-          ls -la .
+          cat $NPM_CONFIG_USERCONFIG
           cd pkg1
-          ls -la .
           npm publish
 
       - uses: actions/setup-node@v3
@@ -46,8 +44,6 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
         run: |
-          ls -la ~/
-          ls -la .
+          cat $NPM_CONFIG_USERCONFIG
           cd pkg1
-          ls -la .
           npm publish
