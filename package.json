@@ -1,7 +1,7 @@
 {
   "name": "setup-node-test",
   "packageManager": "yarn@3.2.2",
-  "script": {
+  "scripts": {
 	  "start": "node index.js"
   }
 }
