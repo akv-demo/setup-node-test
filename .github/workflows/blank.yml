@@ -23,12 +23,12 @@ jobs:
         env:
           YARN_NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          yarn add actions-tool-cache
+          yarn add akv-demo-pkg1
           yarn install --immutable
 
       - name: Test
         run: |
-          echo "const pkg1 = require('actions-tool-cache')" > index.js
+          echo "const pkg1 = require('akv-demo-pkg1')" > index.js
           echo "pkg1.printMsg()" >> index.js
           cat package.json
           cat index.js
