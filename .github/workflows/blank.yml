@@ -30,7 +30,7 @@ jobs:
         run: |
           echo "const pkg1 = require('actions-tool-cache')" > index.js
           echo "pkg1.printMsg()" >> index.js
-          yarb start
+          yarn start
 
   npmjs-scope:
     runs-on: ubuntu-latest
