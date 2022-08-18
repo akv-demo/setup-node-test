@@ -71,7 +71,7 @@ jobs:
 
       - name: Install dependencies
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
+          YARN_NPM_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
         run: |
           yarn add @akv-demo/pkg1
           yarn install --immutable
