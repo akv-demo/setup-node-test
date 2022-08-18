@@ -60,7 +60,7 @@ jobs:
           yarn start
 
 
-  github-scope:
+  github:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/setup-node@v3
@@ -69,9 +69,13 @@ jobs:
           scope: '@akv-demo'
           registry-url: 'https://npm.pkg.github.com'
 
-      - name: Install dependencies
+      - name: Setup .yarnrc.yml
+        run: |
+          yarn config set npmScopes.akv-demo.npmAuthToken $NPM_AUTH_TOKEN
         env:
           NPM_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
+
+      - name: Install dependencies
         run: |
           yarn add @akv-demo/pkg1
           yarn install --immutable
@@ -83,3 +87,4 @@ jobs:
           cat package.json
           cat index.js
           yarn start
+
