@@ -28,9 +28,9 @@ jobs:
 
       - name: Test
         run: |
-          echo "const pkg1 = require('@akvdemo/pkg1')" > index.js
+          echo "const pkg1 = require('actions-tool-cache')" > index.js
           echo "pkg1.printMsg()" >> index.js
-          npm start
+          yarb start
 
   npmjs-scope:
     runs-on: ubuntu-latest
@@ -51,9 +51,9 @@ jobs:
 
       - name: Test
         run: |
-          echo "const pkg1 = require('@akvdemo/pkg1')" > index.js
+          echo "const pkg1 = require('@akv-demo/pkg1')" > index.js
           echo "pkg1.printMsg()" >> index.js
-          npm start
+          yarn start
 
 
   github-scope:
@@ -74,6 +74,6 @@ jobs:
 
       - name: Test
         run: |
-          echo "const pkg1 = require('@akvdemo/pkg1')" > index.js
+          echo "const pkg1 = require('@akv-demo/pkg1')" > index.js
           echo "pkg1.printMsg()" >> index.js
-          npm start
+          yarn start
