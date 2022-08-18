@@ -8,31 +8,45 @@ on:
 
 
 jobs: 
-  build:
+  npmjs-no-scope:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
-
-      - name: bounce version
-        run: |
-          cd pkg1
-          export A=`date +%s`
-          sed -ibak -e "s/1\.0\.0/1.0.$A/" package.json
-          cat package.json
 
       - uses: actions/setup-node@v3
         with:
           node-version: 'v16.13.2'
           registry-url: 'https://registry.npmjs.org'
 
-      - name: publish to npmjs
+      - name: Install dependencies
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          YARN_NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          cat $NPM_CONFIG_USERCONFIG
-          cd pkg1
-          npm publish
+          yarn add actions-tool-cache
+          yarn install --immutable
+
+  npmjs-scope:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 'v16.13.2'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        env:
+          YARN_NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          yarn add @akv-demo/pkg1
+          yarn install --immutable
+
+
+  github-scope:
+    runs-on: ubuntu-latest
 
       - uses: actions/setup-node@v3
         with:
@@ -44,6 +58,5 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
         run: |
-          cat $NPM_CONFIG_USERCONFIG
-          cd pkg1
-          npm publish 
+          yarn add @akv-demo/pkg1
+          yarn install --immutable
