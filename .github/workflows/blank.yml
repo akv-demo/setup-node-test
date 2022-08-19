@@ -74,7 +74,8 @@ jobs:
           scope: '@akv-demo'
           registry-url: 'https://npm.pkg.github.com'
 
-      - name: Setup .yarnrc.yml
+      - name: generate .yarnrc.yml
+        if: ${{ false }}
         run: |
           cat > .yarnrc.yml << EOT
           npmScopes:
@@ -84,6 +85,14 @@ jobs:
               npmRegistryServer: "https://npm.pkg.github.com"
           EOT
           cat .yarnrc.yml
+        env:
+          NPM_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
+
+      - name: Setup .yarnrc.yml
+        run: |
+          yarn config set npmScopes.akv-demo.npmRegistryServer "https://npm.pkg.github.com"
+          yarn config set npmScopes.akv-demo.npmAlwaysAuth true
+          yarn config set npmScopes.akv-demo.npmAuthToken $NPM_AUTH_TOKEN
         env:
           NPM_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
 
