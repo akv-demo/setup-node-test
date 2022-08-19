@@ -76,14 +76,14 @@ jobs:
 
       - name: Setup .yarnrc.yml
         run: |
-          ls -la ~
-          #NPM_CONFIG_USERCONFIG
-          yarn config set npmScopes.akv-demo.npmRegistryServer "https://npm.pkg.github.com"
-          yarn config set npmScopes.akv-demo.npmAlwaysAuth true
-          yarn config set npmScopes.akv-demo.npmAuthToken $NPM_AUTH_TOKEN
-          ls -la .
-          ls -la ~
-          find ~ -name .yarnrc.yml
+          cat > .yarnrc.yml << EOT
+          npmScopes:
+            akv-demo:
+              npmAlwaysAuth: true
+              npmAuthToken: $NPM_AUTH_TOKEN
+              npmRegistryServer: "https://npm.pkg.github.com"
+          EOT
+          cat .yarnrc.yml
         env:
           NPM_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
 
@@ -92,6 +92,7 @@ jobs:
           cat package.json
           yarn set version stable
           yarn --version
+          cat .yarnrc.yml
           yarn add @akv-demo/pkg1
           yarn install --immutable
           cat package.json
