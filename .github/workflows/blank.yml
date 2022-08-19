@@ -90,11 +90,11 @@ jobs:
 
       - name: Setup .yarnrc.yml
         run: |
-          touch yarnrc.yml
+          yarn set version stable
+          yarn --version
           yarn config set npmScopes.akv-demo.npmRegistryServer "https://npm.pkg.github.com"
           yarn config set npmScopes.akv-demo.npmAlwaysAuth true
           yarn config set npmScopes.akv-demo.npmAuthToken $NPM_AUTH_TOKEN
-          cat yarnrc.yml
         env:
           NPM_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
 
