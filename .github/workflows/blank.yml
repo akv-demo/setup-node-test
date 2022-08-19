@@ -23,6 +23,7 @@ jobs:
         env:
           YARN_NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
+          yarn set version stable
           yarn --version
           yarn add akv-demo-pkg1
           yarn install --immutable
@@ -49,6 +50,7 @@ jobs:
         env:
           YARN_NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
+          yarn set version stable
           yarn --version
           yarn add @akvdemo/pkg1
           yarn install --immutable
@@ -85,6 +87,7 @@ jobs:
         run: |
           cat package.json
           cat $NPM_CONFIG_USERCONFIG
+          yarn set version stable
           yarn --version
           yarn add @akv-demo/pkg1
           yarn install --immutable
