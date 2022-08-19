@@ -83,10 +83,12 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
         run: |
+          cat package.json
           cat $NPM_CONFIG_USERCONFIG
           yarn --version
           yarn add @akv-demo/pkg1
           yarn install --immutable
+          cat package.json
 
       - name: Test
         run: |
