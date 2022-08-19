@@ -83,11 +83,9 @@ jobs:
           NPM_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
 
       - name: Install dependencies
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
         run: |
           cat package.json
-          cat $NPM_CONFIG_USERCONFIG
+          cat .yarnrc.yml
           yarn set version stable
           yarn --version
           yarn add @akv-demo/pkg1
