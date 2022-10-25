@@ -26,4 +26,4 @@ jobs:
           node --version
           yarn install
           node main.js
-        working-directory: subproject
+        working-directory: sub
