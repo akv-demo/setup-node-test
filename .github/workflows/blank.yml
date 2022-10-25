@@ -17,11 +17,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16.x
-          cache: 'pnpm'
 
       - name: activate corepack
         run: corepack enable
         
+      - name: install deps
+        run: pnpm store path
+
       - name: install deps
         run: pnpm install
           
