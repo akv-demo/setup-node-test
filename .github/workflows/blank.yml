@@ -19,7 +19,7 @@ jobs:
         with:
           node-version: 16.x
           cache: 'yarn'
-          cache-dependency-path: subproject
+          cache-dependency-path: ./subproject/yarn
 
       - name: Run a multi-line script
         run: |
