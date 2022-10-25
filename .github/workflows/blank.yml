@@ -19,7 +19,7 @@ jobs:
         with:
           node-version: 16.x
           cache: 'yarn'
-          working-directory: subproject
+          working-directory: ./subproject
           # cache-dependency-path: ./subproject/yarn.lock
 
       - name: Run a multi-line script
