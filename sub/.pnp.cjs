@@ -33,9 +33,29 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {\
           "packageLocation": "./",\
           "packageDependencies": [\
+            ["random", "npm:3.0.6"],\
             ["uuid", "npm:9.0.0"]\
           ],\
           "linkType": "SOFT"\
+        }]\
+      ]],\
+      ["random", [\
+        ["npm:3.0.6", {\
+          "packageLocation": "./.yarn/cache/random-npm-3.0.6-77ead135c8-3e900ebada.zip/node_modules/random/",\
+          "packageDependencies": [\
+            ["random", "npm:3.0.6"],\
+            ["seedrandom", "npm:3.0.5"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["seedrandom", [\
+        ["npm:3.0.5", {\
+          "packageLocation": "./.yarn/cache/seedrandom-npm-3.0.5-6946e8f8db-728b56bc3b.zip/node_modules/seedrandom/",\
+          "packageDependencies": [\
+            ["seedrandom", "npm:3.0.5"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["subproject", [\
@@ -43,6 +63,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["subproject", "workspace:."],\
+            ["random", "npm:3.0.6"],\
             ["uuid", "npm:9.0.0"]\
           ],\
           "linkType": "SOFT"\
