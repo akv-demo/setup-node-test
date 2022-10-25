@@ -19,10 +19,12 @@ jobs:
         with:
           node-version: 16.x
           cache: 'yarn'
-          cache-dependency-path: ./subproject/yarn.lock
+          working-directory: subproject
+          # cache-dependency-path: ./subproject/yarn.lock
 
       - name: Run a multi-line script
         run: |
           node --version
+          yarn install
           node main.js
         working-directory: subproject
