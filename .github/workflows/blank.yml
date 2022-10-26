@@ -29,7 +29,7 @@ jobs:
         run: |
           Write-Host $GITHUB_OUTPUT
           Write-Host $Env:GITHUB_OUTPUT
-          echo "VERSION2=V2" >> $GITHUB_OUTPUT
+          echo "VERSION2=V2" >> $Env:GITHUB_OUTPUT
 
       - name: consume output
         shell: bash
