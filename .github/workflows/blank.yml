@@ -27,7 +27,7 @@ jobs:
         id: set2
         shell: pwsh
         run: |
-          echo "VERSION2::V2" >> $GITHUB_OUTPUT
+          echo "VERSION2=V2" >> $GITHUB_OUTPUT
 
       - name: consume output
         shell: bash
@@ -37,7 +37,7 @@ jobs:
       - name: set output via env. files(bash)
         id: set3
         run: |
-          echo "VERSION3::V3" >> $GITHUB_OUTPUT
+          echo "VERSION3=V3" >> $GITHUB_OUTPUT
 
       - name: consume output
         shell: bash
