@@ -23,7 +23,7 @@ jobs:
         run: |
           echo ${{ steps.set.outputs.VERSION }}
 
-      - name: set output via env. files(shell)
+      - name: set output via env. files(pwsh)
         id: set2
         shell: pwsh
         run: |
@@ -33,3 +33,13 @@ jobs:
         shell: bash
         run: |
           echo ${{ steps.set2.outputs.VERSION2 }}
+          
+      - name: set output via env. files(bash)
+        id: set3
+        run: |
+          echo "VERSION3::V3" >> $GITHUB_OUTPUT
+
+      - name: consume output
+        shell: bash
+        run: |
+          echo ${{ steps.set3.outputs.VERSION3 }}
