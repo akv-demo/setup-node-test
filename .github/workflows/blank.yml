@@ -12,16 +12,16 @@ jobs:
 
     steps:
 
-      - name: set output with warning
-        id: set
-        shell: pwsh
-        run: |
-          echo "::set-output name=VERSION::V1"
+      #- name: set output with warning
+      #  id: set
+      #  shell: pwsh
+      #  run: |
+      #    echo "::set-output name=VERSION::V1"
 
-      - name: consume output
-        shell: bash
-        run: |
-          echo ${{ steps.set.outputs.VERSION }}
+      #- name: consume output
+      #  shell: bash
+      #  run: |
+      #    echo ${{ steps.set.outputs.VERSION }}
 
       - name: set output via env. files
         id: set2
