@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: akv-platform/setup-node@v-sdolin-65-2
+      - uses: akv-platform/setup-node@v-sdolin-65-3
         with:
           node-version: 20-canary
 
