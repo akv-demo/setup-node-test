@@ -11,7 +11,7 @@ jobs:
   build:
     strategy:
       matrix:
-        ver: ['20-v8-canary', '20.1-v8-canary', '20.0.1-v8-canary','v20.0.0-v8-canary20221103f7e2421e91']
+        ver: ['20-v8-canary', '20.0-v8-canary', '20.0.0-v8-canary','v20.0.0-v8-canary20221103f7e2421e91']
 
     runs-on: ubuntu-latest
 
