@@ -16,7 +16,7 @@ jobs:
       - uses: akv-platform/setup-node@v-sedoli/lkgr
         name: download canary from the node repo
         with:
-          node-version: 20-canary
+          node-version: 20-v8-canary
 
       - name:  check version
         run: |
