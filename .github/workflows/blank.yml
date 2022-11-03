@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: akv-platform/setup-node@v-sdolin-65-8
+      - uses: akv-platform/setup-node@v-sedoli/lkgr
         name: download canary from the node repo
         with:
           node-version: 20-canary
