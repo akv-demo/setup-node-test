@@ -32,6 +32,7 @@ jobs:
           expected_version=$(echo node_version|sed 's/-v8-canary$//')
           echo "    Found node version '$node_version'"
           echo "Requested node version 'v${{ matrix.ver }}'"
+          echo "Expected node version 'v$expected_version'"
          
           if [ -z "$(echo $node_version | grep --fixed-strings v$expected_version)" ]; then
             echo "Unexpected version"
