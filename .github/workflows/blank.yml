@@ -28,7 +28,7 @@ jobs:
           which node
           node --version
           
-      - uses: akv-platform/setup-node@v-sedoli/lkgr
+      - uses: akv-platform/setup-node@v-sdolin/v8-canary
         name: should be found in cache
         with:
           node-version: ${{ matrix.ver }}
