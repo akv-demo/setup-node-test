@@ -12,7 +12,8 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-        ver: ['20-v8-canary', '20.0-v8-canary', '20.0.0-v8-canary','v20.0.0-v8-canary20221103f7e2421e91']
+        ver: ['v20.0.0-v8-canary20221103f7e2421e91']
+        # ver: ['20-v8-canary', '20.0-v8-canary', '20.0.0-v8-canary','v20.0.0-v8-canary20221103f7e2421e91']
 
     runs-on: ${{ matrix.os }}
 
@@ -28,6 +29,13 @@ jobs:
         run: |
           which node
           node --version
+          node_version="$(node --version)"
+          echo "Found node version '$node_version'"
+          if [ -z "$(echo $node_version | grep --fixed-strings v${{ matrix.ver }})" ]; then
+            echo "Unexpected version"
+            exit 1
+          fi
+          
           
       - uses: akv-platform/setup-node@v-sdolin/v8-canary
         name: should be found in cache
