@@ -25,6 +25,7 @@ jobs:
           node-version: ${{ matrix.ver }}
 
       - name:  check version
+        shell: bash
         run: |
           which node
           node --version
