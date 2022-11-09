@@ -29,7 +29,7 @@ jobs:
           which node
           node --version
           node_version="$(node --version)"
-          expected_mask=$(echo '${{ matrix.ver }}'|sed 's/\./\\./g'|sed 's/-/.*/')
+          expected_mask=$(echo '${{ matrix.ver }}'|sed 's/\./\\./g'|sed 's/-/.*-/')
           echo "    Found node version '$node_version'"
           echo "Requested node version 'v${{ matrix.ver }}'"
           echo " Expected node mask 'v$expected_mask'"
