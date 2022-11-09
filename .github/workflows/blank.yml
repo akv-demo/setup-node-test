@@ -30,7 +30,9 @@ jobs:
           which node
           node --version
           node_version="$(node --version)"
-          echo "Found node version '$node_version'"
+          echo "   Found node version '$node_version'"
+          echo "Expected node version 'v${{ matrix.ver }}'"
+         
           if [ -z "$(echo $node_version | grep --fixed-strings v${{ matrix.ver }})" ]; then
             echo "Unexpected version"
             exit 1
