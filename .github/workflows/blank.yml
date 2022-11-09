@@ -18,7 +18,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: akv-platform/setup-node@v-sdolin-65-9
+      - uses: akv-platform/setup-node@v-sdolin/v8-canaryx
         name: download canary from the node repo
         with:
           node-version: ${{ matrix.ver }}
@@ -28,7 +28,7 @@ jobs:
           which node
           node --version
           
-      - uses: akv-platform/setup-node@v-sdolin-65-9
+      - uses: akv-platform/setup-node@v-sdolin/v8-canaryx
         name: should be found in cache
         with:
           node-version: ${{ matrix.ver }}
