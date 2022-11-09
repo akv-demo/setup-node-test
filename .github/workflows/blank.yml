@@ -33,7 +33,7 @@ jobs:
           echo "    Found node version '$node_version'"
           echo "Requested node version 'v${{ matrix.ver }}'"
          
-          if [ -z "$(echo $node_version | grep --fixed-strings v${{ matrix.ver }})" ]; then
+          if [ -z "$(echo $node_version | grep --fixed-strings v$expected_version)" ]; then
             echo "Unexpected version"
             exit 1
           fi
