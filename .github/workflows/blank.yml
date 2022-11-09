@@ -29,12 +29,12 @@ jobs:
           which node
           node --version
           node_version="$(node --version)"
-          expected_version=$(echo node_version|sed 's/-v8-canary$//')
+          expected_mask=$(echo '${{ matrix.ver }}'|sed 's/\./\\./g'|sed 's/-/.*/')
           echo "    Found node version '$node_version'"
           echo "Requested node version 'v${{ matrix.ver }}'"
-          echo "Expected node version 'v$expected_version'"
+          echo " Expected node mask 'v$expected_mask'"
          
-          if [ -z "$(echo $node_version | grep --fixed-strings v$expected_version)" ]; then
+          if [ -z "$(echo $node_version | grep v$expected_mask)" ]; then
             echo "Unexpected version"
             exit 1
           fi
