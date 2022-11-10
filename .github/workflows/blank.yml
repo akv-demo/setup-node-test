@@ -23,6 +23,9 @@ jobs:
           sed -ibak -e "s/1\.0\.0/1.0.$A/" package.json
           cat package.json
 
+      - run: |
+          yarn install
+          
       - uses: actions/setup-node@v3
         with:
           node-version: 'v16.13.2'
