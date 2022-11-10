@@ -23,11 +23,6 @@ jobs:
           sed -ibak -e "s/1\.0\.0/1.0.$A/" package.json
           cat package.json
 
-      - run: |
-          yarn install
-          ls -la
-        working-directory: pkg1
-          
       - uses: actions/setup-node@v3
         with:
           node-version: 'v16.13.2'
@@ -36,9 +31,8 @@ jobs:
           cache: 'yarn'
           
       - run: |
-          yarn install
+          yarn install --frozen-lockfile
           yarn bundle
-        working-directory: pkg1
          
 
      # - name: publish to github
