@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [ "issue-130" ]
+    branches: [ "issue-130-yarn" ]
 
   workflow_dispatch:
 
