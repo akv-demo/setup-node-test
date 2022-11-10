@@ -18,7 +18,6 @@ jobs:
 
       - name: bounce version
         run: |
-          cd pkg1
           export A=`date +%s`
           sed -ibak -e "s/1\.0\.0/1.0.$A/" package.json
           cat package.json
