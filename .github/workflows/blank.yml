@@ -28,7 +28,7 @@ jobs:
 
       - name: publish to npmjs
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.PRTCIJA_NPM_TOKEN }}
         run: |
           cat $NPM_CONFIG_USERCONFIG
           cd pkg1
