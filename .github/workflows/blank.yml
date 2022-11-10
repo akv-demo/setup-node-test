@@ -25,6 +25,7 @@ jobs:
 
       - run: |
           yarn install
+          ls -la
         working-directory: pkg1
           
       - uses: actions/setup-node@v3
