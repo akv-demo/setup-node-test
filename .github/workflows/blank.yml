@@ -25,6 +25,7 @@ jobs:
 
       - run: |
           yarn install
+        working-directory: pkg1
           
       - uses: actions/setup-node@v3
         with:
@@ -36,6 +37,7 @@ jobs:
       - run: |
           yarn install
           yarn bundle
+        working-directory: pkg1
          
 
      # - name: publish to github
