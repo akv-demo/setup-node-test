@@ -31,7 +31,6 @@ jobs:
           
       - run: |
           yarn install --frozen-lockfile
-          yarn bundle
          
 
      # - name: publish to github
