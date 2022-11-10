@@ -10,6 +10,8 @@ on:
 jobs: 
   build:
     runs-on: ubuntu-latest
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.PRTCIJA_NPM_TOKEN }}
         
     steps:
       - uses: actions/checkout@v3
@@ -27,8 +29,8 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: publish to npmjs
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.PRTCIJA_NPM_TOKEN }}
+#        env:
+#          NODE_AUTH_TOKEN: ${{ secrets.PRTCIJA_NPM_TOKEN }}
         run: |
           cat $NPM_CONFIG_USERCONFIG
           cd pkg1
