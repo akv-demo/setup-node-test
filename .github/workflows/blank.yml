@@ -26,26 +26,19 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 'v16.13.2'
-          registry-url: 'https://registry.npmjs.org'
-
-      - name: publish to npmjs
-#        env:
-#          NODE_AUTH_TOKEN: ${{ secrets.PRTCIJA_NPM_TOKEN }}
-        run: |
-          cat $NPM_CONFIG_USERCONFIG
-          cd pkg1
-          npm publish --access public
-
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 'v16.13.2'
-          scope: '@akv-demo'
+          # scope: '@akv-demo'
           registry-url: 'https://npm.pkg.github.com'
+          cache: 'yarn'
+          
+      - run: |
+          yarn install
+          yarn bundle
+         
 
-      - name: publish to github
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
-        run: |
-          cat $NPM_CONFIG_USERCONFIG
-          cd pkg1
-          npm publish 
+     # - name: publish to github
+     #   env:
+     #     NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
+     #   run: |
+     #     cat $NPM_CONFIG_USERCONFIG
+     #     cd pkg1
+     #     npm publish 
