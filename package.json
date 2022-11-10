@@ -1,0 +1,15 @@
+{
+  "name": "@akv-demo/pkg1",
+  "version": "1.0.1668076550",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "url": "https://github.com/akv-demo/setup-node-test",
+    "type": "git"
+  }
+}
