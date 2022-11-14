@@ -10,8 +10,8 @@ jobs:
   build:
     strategy:
       matrix:
-        node: [14, 16]
-        npm: [9, 8]
+        node: [14]
+        npm: [8]
     runs-on: windows-latest
 
     steps:
