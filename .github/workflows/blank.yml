@@ -30,6 +30,11 @@ jobs:
         shell: cmd
         
       - run: |
+          &c:\node\node-v14.21.1-win-x64\npm.cmd install --g npm
+          &c:\node\node-v14.21.1-win-x64\npm.cmd --version
+        shell: pwsh
+        
+      - run: |
           /node/node-v14.21.1-win-x64/npm.cmd install --g npm
           /node/node-v14.21.1-win-x64/npm.cmd --version
         shell: bash
