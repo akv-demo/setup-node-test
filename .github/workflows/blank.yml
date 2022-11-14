@@ -17,7 +17,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
           
-      - run: npm root -g
+      - run: |
+          node --version
+          npm root -g
 
       - name: Install npm@${{ matrix.npm }}
         run: npm install --global npm@${{ matrix.npm }}
