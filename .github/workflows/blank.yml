@@ -19,9 +19,11 @@ jobs:
         shell: pwsh
         
       - run: |
-          c:\node\node.exe --version
-          c:\node\node.cmd --version
           dir c:\node
+          
+          c:\node\node.cmd --version
+          c:\node\npm.cmd --version
+          
           set PATH=c:\node;%PATH%
           node --version
           npm -install --global npm
