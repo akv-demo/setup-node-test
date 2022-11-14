@@ -19,12 +19,12 @@ jobs:
         shell: pwsh
         
       - run: |
-          dir c:\node
+          dir C:\node\node-v14.21.1-win-x64
           
-          c:\node\node.cmd --version
-          c:\node\npm.cmd --version
+          C:\node\node-v14.21.1-win-x64\node.cmd --version
+          C:\node\node-v14.21.1-win-x64\npm.cmd --version
           
-          set PATH=c:\node;%PATH%
+          set PATH=C:\node\node-v14.21.1-win-x64;%PATH%
           node --version
           npm -install --global npm
         shell: cmd
