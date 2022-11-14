@@ -11,6 +11,8 @@ jobs:
     runs-on: windows-latest
 
     steps:
+      - run: |
+          nvm --help
           
       - run: |
           New-Item 'C:\node' -itemType Directory
