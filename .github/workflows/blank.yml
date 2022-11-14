@@ -11,7 +11,7 @@ jobs:
     strategy:
       matrix:
         node: [14, 16]
-        npm: [8, 9, latest]
+        npm: [8, 9]
     runs-on: windows-latest
 
     steps:
@@ -20,7 +20,9 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
+          
+      - run: npm root -g
 
-      - name: Install npm${{ matrix.npm }}
+      - name: Install npm@${{ matrix.npm }}
         run: npm install --global npm@${{ matrix.npm }}
         
