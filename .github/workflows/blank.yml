@@ -31,9 +31,6 @@ jobs:
         
       - run: |
           @echo on
-          echo %PATH%
-          node --version
-          npm --version
           C:\node\node-v14.21.1-win-x64\npm.cmd -i --g npm
           C:\node\node-v14.21.1-win-x64\npm.cmd --version
         shell: cmd
