@@ -11,16 +11,16 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - run: |
-          nvm --help
           
       - run: |
+          Invoke-WebRequest 'https://nodejs.org/download/release/v14.21.1/node-v14.21.1-win-x64.zip' -OutFile 'node-v14.21.1-win-x64.zip'
           New-Item 'C:\node' -itemType Directory
-          Invoke-WebRequest 'https://nodejs.org/dist/v14.17.3/win-x64/node.exe' -OutFile 'c:\node\node.exe'
+          Expand-Archive 'node-v14.21.1-win-x64.zip' -DestinationPath 'c:\node'
         shell: pwsh
         
       - run: |
           c:\node\node.exe --version
+          c:\node\node.cmd --version
           dir c:\node
           set PATH=c:\node;%PATH%
           node --version
