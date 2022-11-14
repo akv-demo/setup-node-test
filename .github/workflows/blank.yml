@@ -19,6 +19,7 @@ jobs:
         shell: pwsh
         
       - run: |
+          @echo on
           echo "node.exe --version"
           C:\node\node-v14.21.1-win-x64\node.exe --version
           echo "npm.cmd --version"
