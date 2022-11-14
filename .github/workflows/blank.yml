@@ -15,7 +15,7 @@ jobs:
       - run: |
           Invoke-WebRequest 'https://nodejs.org/download/release/v14.21.1/node-v14.21.1-win-x64.zip' -OutFile 'node-v14.21.1-win-x64.zip'
           New-Item 'C:\node' -itemType Directory
-          Expand-Archive -Verbose node-v14.21.1-win-x64.zip -DestinationPath c:\node
+          Expand-Archive node-v14.21.1-win-x64.zip -DestinationPath c:\node
         shell: pwsh
         
       - run: |
@@ -27,10 +27,7 @@ jobs:
           set PATH=C:\node\node-v14.21.1-win-x64;%PATH%
           node --version
           npm --version
-          npm -install --global npm
+          npm -install --global npm@9
           npm --version
         shell: cmd
-
-      - name: Install npm@${{ matrix.npm }}
-        run: npm install --global npm@${{ matrix.npm }}
         
