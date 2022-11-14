@@ -17,5 +17,14 @@ jobs:
         with:
           node-version: 16
 
-      - name: Install latest npm version
+      - name: Install default npm version
         run: npm install --global npm
+        
+      - name: Install npm 8
+        run: npm install --global npm@8
+        
+      - name: Install npm 9
+        run: npm install --global npm@9
+        
+      - name: Install latest npm version
+        run: npm install --global npm@latest
