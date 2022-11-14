@@ -21,11 +21,11 @@ jobs:
       - run: |
           @echo on
           set "PATH=C:\node\node-v14.21.1-win-x64;%PATH%"
-          setx "PATH=C:\node\node-v14.21.1-win-x64;%PATH%" /m
+          setx PATH=C:\node\node-v14.21.1-win-x64;%PATH% /m
           echo %PATH%
           node --version
           npm --version
-          npm -install --global npm@9
+          npm -i -g npm@9
           npm --version
         shell: cmd
         
@@ -34,7 +34,7 @@ jobs:
           echo %PATH%
           node --version
           npm --version
-          npm -install --global npm@9
-          npm --version
+          C:\node\node-v14.21.1-win-x64\npm.cmd -i --g npm
+          C:\node\node-v14.21.1-win-x64\npm.cmd --version
         shell: cmd
         
