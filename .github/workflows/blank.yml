@@ -25,12 +25,12 @@ jobs:
           echo %PATH%
           node --version
           npm --version
-          npm -i -g npm@9
+          npm install -g npm@9
           npm --version
         shell: cmd
         
       - run: |
-          C\node\node-v14.21.1-win-x64\npm.cmd -i --g npm
+          C\node\node-v14.21.1-win-x64\npm.cmd install --g npm
           C\node\node-v14.21.1-win-x64\npm.cmd --version
         shell: bash
         
