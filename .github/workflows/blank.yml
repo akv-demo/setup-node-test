@@ -24,7 +24,11 @@ jobs:
           echo "npm.cmd --version"
           C:\node\node-v14.21.1-win-x64\npm.cmd --version
           
+          echo "set PATH=C:\node\node-v14.21.1-win-x64;%PATH%"
           set PATH=C:\node\node-v14.21.1-win-x64;%PATH%
+          
+          echo %PATH%
+          
           echo "node --version"
           node --version
           echo "npm --version"
