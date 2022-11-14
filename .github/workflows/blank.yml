@@ -8,6 +8,10 @@ on:
 
 jobs:
   build:
+    strategy:
+      matrix:
+        node: [14, 16]
+        npm: [8, 9, latest]
     runs-on: windows-latest
 
     steps:
@@ -15,16 +19,8 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: 14
+          node-version: ${{ matrix.node }}
 
-      - name: Install default npm version
-        run: npm install --global npm
+      - name: Install npm${{ matrix.npm }}
+        run: npm install --global npm@${{ matrix.npm }}
         
-      - name: Install npm 8
-        run: npm install --global npm@8
-        
-      - name: Install npm 9
-        run: npm install --global npm@9
-        
-      - name: Install latest npm version
-        run: npm install --global npm@latest
