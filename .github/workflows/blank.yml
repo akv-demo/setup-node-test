@@ -8,18 +8,18 @@ on:
 
 jobs:
   build:
-    strategy:
-      matrix:
-        node: [14]
-        npm: [9, 8]
     runs-on: windows-latest
 
     steps:
-      - uses: actions/checkout@v3
           
       - run: |
+          New-Item 'C:\node' -itemType Directory
+          Invoke-WebRequest 'https://nodejs.org/dist/v14.17.3/win-x64/node.exe' -OutFile 'c:\node\node.exe'
+          $Path = [Environment]::GetEnvironmentVariable("PATH", "Machine") + [IO.Path]::PathSeparator + $Path
+          [Environment]::SetEnvironmentVariable( "c:\node", $Path, "Machine" )
           node --version
-          npm root -g
+          npm -install --global npm@9
+        shell: pwsh
 
       - name: Install npm@${{ matrix.npm }}
         run: npm install --global npm@${{ matrix.npm }}
