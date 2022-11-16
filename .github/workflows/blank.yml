@@ -21,5 +21,9 @@ jobs:
           cache-dependency-path: functions/package-lock.json
 
 
-      - run: npm install
+      - run: |
+          pwd
+          ls -la
+          ls -la node_modules
+          npm install
         working-directory: functions
