@@ -17,9 +17,8 @@ jobs:
         with:
           node-version: 16
           cache: "npm"
+          cache-dependency-path: functions/package-lock.json
 
 
-      - name: Run a multi-line script
-        run: npm init
+      - run: npm install
         working-directory: functions
-        cache-dependency-path: functions/package-lock.json
