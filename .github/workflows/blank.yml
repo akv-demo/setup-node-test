@@ -21,4 +21,16 @@ jobs:
 
       - name: detect new line
         run: |
-          echo "${{ steps.setup-node.outputs.node-version }}-"
+          echo "${{ steps.setup-node.outputs.node-version }}-should be in the same line as above"
+          
+          
+          l
+      - uses: akv-platform/setup-node@v-sdolin/fix-n
+        id: setup-node-fixed
+        with:
+          node-version: 16
+      - name: test fix
+        run: |
+          echo "${{ steps.setup-node-fixed.outputs.node-version }}-should be in the same line as above"
+          
+
