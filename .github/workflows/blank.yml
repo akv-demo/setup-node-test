@@ -22,3 +22,4 @@ jobs:
       - name: Run a multi-line script
         run: npm init
         working-directory: functions
+        cache-dependency-path: functions/package-lock.json
