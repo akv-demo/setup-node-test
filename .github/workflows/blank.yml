@@ -16,6 +16,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+          check-latest: true
           cache: "npm"
           cache-dependency-path: functions/package-lock.json
 
