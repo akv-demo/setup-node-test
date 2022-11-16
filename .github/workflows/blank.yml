@@ -24,6 +24,6 @@ jobs:
       - run: |
           pwd
           ls -la
-          ls -la node_modules
           npm install
+          ls -la node_modules
         working-directory: functions
