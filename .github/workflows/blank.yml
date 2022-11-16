@@ -23,9 +23,7 @@ jobs:
         run: |
           echo "${{ steps.setup-node.outputs.node-version }}-should be in the same line as above"
           
-          
-          l
-      - uses: akv-platform/setup-node@v-sdolin/fix-n
+      - uses: akv-platform/setup-node@v-sdolin/fix-nl
         id: setup-node-fixed
         with:
           node-version: 16
