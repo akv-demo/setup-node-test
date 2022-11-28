@@ -28,4 +28,6 @@ jobs:
           MONGO_URI: ${{ secrets.MONGO_URI }}
         run: |
           which mongodump || echo 'mongodump not found'
+          which mongodump && ls -la `which mongodump`
+          mongodump --version
           mongodump --uri=${MONGO_URI} --archive=./backups/${date}.gz --gzip
