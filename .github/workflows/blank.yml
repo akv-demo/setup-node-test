@@ -19,7 +19,7 @@ jobs:
           check-latest: true
           cache: "npm"
           # cache-dependency-path: functions/package-lock.json
-          cache-dependency-path: ${{GITHUB_WORKSPACE}}/functions/package-lock.json
+          cache-dependency-path: ${{env.GITHUB_WORKSPACE}}/functions/package-lock.json
 
 
       - run: |
