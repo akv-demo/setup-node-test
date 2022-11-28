@@ -5,25 +5,24 @@ name: CI
 on:
   push:
 
-  workflow_dispatch:
+  workflow_dispatch:  
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        version: [20.04, 22.04]
+
+    runs-on: ubuntu-${{ matrix.version}}
 
     steps:
       - uses: actions/checkout@v3
 
       - name: Use Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: 16.x
-          cache: 'yarn'
-          cache-dependency-path: ./sub/yarn.lock
+          node-version: 16
 
       - name: Run a multi-line script
         run: |
-          node --version
-          yarn install
-          node main.js
-        working-directory: sub
+          which mongodump || echo 'mongodump not found'
