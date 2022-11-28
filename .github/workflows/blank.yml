@@ -24,5 +24,8 @@ jobs:
           node-version: 16
 
       - name: Run a multi-line script
+        env:
+          MONGO_URI: ${{ secrets.MONGO_URI }}
         run: |
           which mongodump || echo 'mongodump not found'
+          mongodump --uri=${MONGO_URI} --archive=./backups/${date}.gz --gzip
