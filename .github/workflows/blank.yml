@@ -18,16 +18,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Use Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-
       - name: Run a multi-line script
-        env:
-          MONGO_URI: ${{ secrets.MONGO_URI }}
         run: |
           which mongodump || echo 'mongodump not found'
-          which mongodump && ls -la `which mongodump`
-          mongodump --version
-          mongodump --uri=${MONGO_URI} --archive=./backups/${date}.gz --gzip
+          ls -l /usr/bin
+          
