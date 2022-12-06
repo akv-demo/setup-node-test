@@ -15,6 +15,9 @@ jobs:
 
       - name: Run a multi-line script
         run: |
+          set +e
+          set +x
+          git config --global credential.helper
           git config --global credential.helper
           git config --system credential.helper
         
