@@ -23,4 +23,13 @@ jobs:
           echo $?
           git config --system credential.helper
           echo $?
+          git config --unset credential.helper
+          git config --global --unset credential.helper
+          git config --system --unset credential.helper
+          git config credential.helper
+          echo $?
+          git config --global credential.helper
+          echo $?
+          git config --system credential.helper
+          echo $?
         
