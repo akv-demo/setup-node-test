@@ -23,21 +23,19 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          # node-version: 'v16.13.2'
-          node-version: 18
+          node-version: 16
           cach: 'yarn'
-          # scope: '@akv-demo'
-          registry-url: 'https://npm.pkg.github.com'
+          always-auth: true
+          registry-url: https://npm.pkg.github.com
+          scope: '@akv-demo'
 
       - run: |
-          cd pkg1
+          cat $NPM_CONFIG_USERCONFIG
           yarn install
+        working-directory: pkg1
 
       - name: publish to github
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
-        run: |
-          cat $NPM_CONFIG_USERCONFIG
-          cd pkg1
-          # npm publish 
-          yarn publish
+        working-directory: pkg1
+        run: yarn --verbose
