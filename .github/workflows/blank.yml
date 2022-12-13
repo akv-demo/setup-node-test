@@ -38,4 +38,6 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
         working-directory: pkg1
-        run: yarn --verbose
+        run: |
+          yarn --verbose
+          yarn publish
