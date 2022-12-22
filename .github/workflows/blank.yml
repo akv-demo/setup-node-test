@@ -2,7 +2,6 @@ name: CI
 
 on:
   push:
-    branches: [ "issue-130-yarn" ]
 
   workflow_dispatch:
 
@@ -10,27 +9,24 @@ on:
 jobs: 
   build:
     runs-on: ubuntu-latest
-    env:
-      NODE_AUTH_TOKEN: ${{ secrets.PRTCIJA_NPM_TOKEN }}
         
     steps:
       - uses: actions/checkout@v3
 
-      - name: bounce version
-        run: |
-          export A=`date +%s`
-          sed -ibak -e "s/1\.0\.0/1.0.$A/" package.json
-          cat package.json
-
       - uses: actions/setup-node@v3
         with:
-          node-version: 'v16.13.2'
-          # scope: '@akv-demo'
-          registry-url: 'https://npm.pkg.github.com'
+          node-version: 'v16'
           cache: 'yarn'
+          always-auth: true
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@akv-demo'
           
       - run: |
-          yarn install --frozen-lockfile
+          set -x
+          yarn --verbose
+          yarn install
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
          
 
      # - name: publish to github

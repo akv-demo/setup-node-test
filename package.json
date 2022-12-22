@@ -11,5 +11,8 @@
   "repository": {
     "url": "https://github.com/akv-demo/setup-node-test",
     "type": "git"
+  },
+  "dependencies": {
+    "@akv-demo/pkg1": "1.0.1670912381"
   }
 }

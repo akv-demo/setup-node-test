@@ -1,3 +1,3 @@
-exports.printMsg = function() {
-  console.log("This is a message from the demo package");
-}
+const pkg1 = require('@akv-demo/pkg1')
+
+pkg1.printMsg()
