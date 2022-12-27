@@ -1,18 +1,4 @@
 {
-  "name": "@akv-demo/pkg1",
-  "version": "1.0.1668076550",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "repository": {
-    "url": "https://github.com/akv-demo/setup-node-test",
-    "type": "git"
-  },
-  "dependencies": {
-    "@akv-demo/pkg1": "1.0.1670912381"
-  }
+  "name": "setup-node-test",
+  "packageManager": "yarn@3.2.2"
 }
