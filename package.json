@@ -1,4 +1,7 @@
 {
   "name": "setup-node-test",
-  "packageManager": "yarn@3.2.2"
+  "packageManager": "yarn@3.2.2",
+  "dependencies": {
+    "@akv-demo/pkg1": "1.0.1670912381"
+  }
 }
