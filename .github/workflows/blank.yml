@@ -21,13 +21,13 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
           scope: '@akv-demo'
           
-      - run: |
-          cat $NPM_CONFIG_USERCONFIG
-          yarn 
-          node index.js
+      - run: cat $NPM_CONFIG_USERCONFIG
+          
+      - run: yarn
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-         
+          
+      - run: node index.js     
 
      # - name: publish to github
      #   env:
