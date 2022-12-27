@@ -22,7 +22,7 @@ jobs:
           scope: '@akv-demo'
           
       - run: |
-          set -x
+          cat $NPM_CONFIG_USERCONFIG
           yarn 
           node index.js
         env:
