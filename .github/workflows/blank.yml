@@ -23,8 +23,8 @@ jobs:
           
       - run: |
           set -x
-          yarn --verbose
-          yarn install
+          yarn 
+          node index.js
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
          
