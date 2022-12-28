@@ -21,7 +21,10 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
           scope: '@akv-demo'
           
-      - run: cat $NPM_CONFIG_USERCONFIG
+      - run: |
+          which yarn
+          yarn --version
+          cat $NPM_CONFIG_USERCONFIG
           
       - run: yarn
         env:
