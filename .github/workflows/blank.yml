@@ -23,4 +23,4 @@ jobs:
 
       - name: Run a multi-line script
         run: |
-          git config --global username name
+          git config --global user.name name
