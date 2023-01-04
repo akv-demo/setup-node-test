@@ -14,13 +14,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Use Node
-        uses: actions/setup-node@v2
-        with:
-          node-version: 16.x
-          cache: 'yarn'
-          cache-dependency-path: ./sub/yarn.lock
-
       - name: Run a multi-line script
         run: |
           git config --global user.name name
