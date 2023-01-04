@@ -23,7 +23,4 @@ jobs:
 
       - name: Run a multi-line script
         run: |
-          node --version
-          yarn install
-          node main.js
-        working-directory: sub
+          git config --global username name
