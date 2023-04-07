@@ -27,5 +27,5 @@ jobs:
           which yarn
           yarn --version
           yarn install
-          node main.js
+          yarn node main.js
         working-directory: sub
