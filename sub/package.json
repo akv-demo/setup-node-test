@@ -1,6 +1,6 @@
 {
   "name": "subproject",
-  "packageManager": "yarn@3.2.2",
+  "packageManager": "yarn@3.5.0",
   "dependencies": {
     "random": "^3.0.6",
     "uuid": "^9.0.0"
