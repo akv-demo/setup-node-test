@@ -18,14 +18,24 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 16.x
-          #cache-dependency-path: ./sub/yarn.lock
-          #cache: 'yarn'
+          cache-dependency-path: ./sub/yarn.lock
+          cache: 'yarn'
 
-      - name: Run a multi-line script
+      - name: in root
         run: |
           node --version
           which yarn
           yarn --version
+          yarn cache dir
+
+
+      - name: in subdie
+        run: |
+          node --version
+          which yarn
+          yarn --version
+          yarn cache dir
+          yarn config get cacheFolder
           yarn install
           yarn node main.js
         working-directory: sub
