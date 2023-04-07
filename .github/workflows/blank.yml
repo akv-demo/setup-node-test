@@ -26,7 +26,10 @@ jobs:
           node --version
           which yarn
           yarn --version
+          echo 'yarn cache dir'
           yarn cache dir
+          echo 'yarn config get cacheFolder'
+          yarn config get cacheFolder
 
 
       - name: in subdie
@@ -34,7 +37,9 @@ jobs:
           node --version
           which yarn
           yarn --version
-          yarn cache dir
+          echo 'yarn cache dir'
+          yarn cache dir || true
+          echo 'yarn config get cacheFolder'
           yarn config get cacheFolder
           yarn install
           yarn node main.js
