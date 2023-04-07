@@ -18,8 +18,9 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 16.x
-          cache: 'yarn'
-          cache-dependency-path: ./sub/yarn.lock
+          cache: false
+          #cache-dependency-path: ./sub/yarn.lock
+          #cache: 'yarn'
 
       - name: Run a multi-line script
         run: |
