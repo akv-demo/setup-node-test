@@ -69,6 +69,5 @@ jobs:
         uses: akv-platform/setup-node@project-dir
         with:
           node-version: 16.x
-          cache-dependency-path: ./sub/yarn.lock
           cache: 'yarn'
           project-dir: 'sub'
