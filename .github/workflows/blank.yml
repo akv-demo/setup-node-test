@@ -8,14 +8,14 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  current-action:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
 
       - name: Use Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 16.x
           cache-dependency-path: ./sub/yarn.lock
@@ -32,7 +32,7 @@ jobs:
           yarn config get cacheFolder
 
 
-      - name: in subdie
+      - name: in subdir
         run: |
           node --version
           which yarn
@@ -44,3 +44,31 @@ jobs:
           yarn install
           yarn node main.js
         working-directory: sub
+
+
+  dev-action-auto:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node
+        uses: akv-platform/setup-node@project-dir
+        with:
+          node-version: 16.x
+          cache-dependency-path: ./sub/yarn.lock
+          cache: 'yarn'
+          
+  dev-action-explicit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node
+        uses: akv-platform/setup-node@project-dir
+        with:
+          node-version: 16.x
+          cache-dependency-path: ./sub/yarn.lock
+          cache: 'yarn'
+          project-dir: 'sub'
