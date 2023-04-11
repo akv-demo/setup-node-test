@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  current-action:
+  v3:
     runs-on: ubuntu-latest
 
     steps:
@@ -46,7 +46,7 @@ jobs:
         working-directory: sub
 
 
-  dev-action-auto:
+  cache-dependency-path:
     runs-on: ubuntu-latest
 
     steps:
@@ -59,7 +59,20 @@ jobs:
           cache-dependency-path: ./sub/yarn.lock
           cache: 'yarn'
           
-  dev-action-explicit:
+  project-dir:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node
+        uses: akv-platform/setup-node@project-dir
+        with:
+          node-version: 16.x
+          cache: 'yarn'
+          project-dir: 'sub'
+          
+  project-dir_cache-dependency-path:
     runs-on: ubuntu-latest
 
     steps:
