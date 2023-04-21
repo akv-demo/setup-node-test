@@ -58,6 +58,18 @@ jobs:
           node-version: 16.x
           cache-dependency-path: ./sub/yarn.lock
           cache: 'yarn'
+      - name: in subdir
+        run: |
+          node --version
+          which yarn
+          yarn --version
+          echo 'yarn cache dir'
+          yarn cache dir || true
+          echo 'yarn config get cacheFolder'
+          yarn config get cacheFolder
+          yarn install
+          yarn node main.js
+        working-directory: sub
           
   project-dir:
     runs-on: ubuntu-latest
@@ -71,6 +83,18 @@ jobs:
           node-version: 16.x
           cache: 'yarn'
           project-dir: 'sub'
+      - name: in subdir
+        run: |
+          node --version
+          which yarn
+          yarn --version
+          echo 'yarn cache dir'
+          yarn cache dir || true
+          echo 'yarn config get cacheFolder'
+          yarn config get cacheFolder
+          yarn install
+          yarn node main.js
+        working-directory: sub  
           
   project-dir_cache-dependency-path:
     runs-on: ubuntu-latest
@@ -84,3 +108,15 @@ jobs:
           node-version: 16.x
           cache: 'yarn'
           project-dir: 'sub'
+      - name: in subdir
+        run: |
+          node --version
+          which yarn
+          yarn --version
+          echo 'yarn cache dir'
+          yarn cache dir || true
+          echo 'yarn config get cacheFolder'
+          yarn config get cacheFolder
+          yarn install
+          yarn node main.js
+        working-directory: sub
