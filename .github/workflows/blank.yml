@@ -34,6 +34,6 @@ jobs:
           
       - name: install 2
         run: |
-          yarn install
+          yarn install --force
           ls -la `yarn config get cacheFolder`
           ls -la
