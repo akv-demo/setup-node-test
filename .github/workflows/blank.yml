@@ -18,10 +18,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18.x
-          cache: 'yarn'
 
       - name: install 1
         run: |
+          yarn config get cacheFolder
           yarn install
           ls -la `yarn config get cacheFolder`
           ls -la
@@ -34,6 +34,40 @@ jobs:
           
       - name: install 2
         run: |
-          yarn install --force
+          yarn config get cacheFolder
+          rm yarn.lock
+          yarn install
+          ls -la `yarn config get cacheFolder`
+          ls -la
+      
+      - name: use local cache
+        run: |
+          echo 'enableGlobalCache: true' >> .yarnrc.yml
+          
+      - name: upgrade dependency
+        run: |
+          sed -i  -e 's/4.17.2/4.17.3/' package.json
+          ls -la
+          cat package.json
+          
+      - name: install 3
+        run: |
+          yarn config get cacheFolder
+          rm yarn.lock
+          yarn install
+          ls -la `yarn config get cacheFolder`
+          ls -la
+          
+      - name: upgrade dependency
+        run: |
+          sed -i  -e 's/4.17.3/4.17.4/' package.json
+          ls -la
+          cat package.json
+          
+      - name: install 4
+        run: |
+          yarn config get cacheFolder
+          rm yarn.lock
+          yarn install
           ls -la `yarn config get cacheFolder`
           ls -la
