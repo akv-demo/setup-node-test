@@ -25,4 +25,8 @@ jobs:
           node --version
           yarn --version
           yarn install
-          yarn node index.js
+          ls -la `yarn config get cacheFolder`
+          sed -i  -e 's/4.17.1/4.17.2/' package.json
+          yarn install
+          ls -la `yarn config get cacheFolder`
+          
