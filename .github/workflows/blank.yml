@@ -26,8 +26,7 @@ jobs:
       - name: install 1
         run: |
           yarn config get cacheFolder
-          unset CI
-          yarn install
+          yarn install --no-frozen-lockfile
           ls -la `yarn config get cacheFolder`
           ls -la
 
@@ -40,8 +39,7 @@ jobs:
       - name: install 2
         run: |
           yarn config get cacheFolder
-          unset CI
-          yarn install
+          yarn install --no-frozen-lockfile
           ls -la `yarn config get cacheFolder`
           ls -la
       
@@ -58,8 +56,7 @@ jobs:
       - name: install 3
         run: |
           yarn config get cacheFolder
-          unset CI
-          yarn install
+          yarn install --no-frozen-lockfile
           ls -la `yarn config get cacheFolder`
           ls -la
           
@@ -72,7 +69,6 @@ jobs:
       - name: install 4
         run: |
           yarn config get cacheFolder
-          unset CI
-          yarn install
+          yarn install --no-frozen-lockfile
           ls -la `yarn config get cacheFolder`
           ls -la
