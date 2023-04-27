@@ -24,7 +24,7 @@ jobs:
         run: |
           yarn install
           ls -la `yarn config get cacheFolder`
-          la -la
+          ls -la
 
       - name: upgrade dependency
         run: |
@@ -35,4 +35,4 @@ jobs:
         run: |
           yarn install
           ls -la `yarn config get cacheFolder`
-          la la
+          ls -la
