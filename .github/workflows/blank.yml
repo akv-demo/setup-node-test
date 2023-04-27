@@ -20,13 +20,19 @@ jobs:
           node-version: 18.x
           cache: 'yarn'
 
-      - name: Use node
+      - name: install 1
         run: |
-          node --version
-          yarn --version
           yarn install
           ls -la `yarn config get cacheFolder`
+          la -la
+
+      - name: upgrade dependency
+        run: |
           sed -i  -e 's/4.17.1/4.17.2/' package.json
+          cat package.json
+          
+      - name: install 2
+        run: |
           yarn install
           ls -la `yarn config get cacheFolder`
-          
+          la la
