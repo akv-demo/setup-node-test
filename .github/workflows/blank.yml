@@ -18,7 +18,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18.x
-
+      
+      - name: set
+        run: |
+          set
+          
       - name: install 1
         run: |
           yarn config get cacheFolder
