@@ -9,21 +9,31 @@ on:
 
 jobs:
   build:
+    strategy:
+      matrix:
+        version: [actions/setup-node@v3, akv-platform/setup-node@project-dir]
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
 
-      - name: Use Node
-        uses: actions/setup-node@v2
+
+      - name: root project
+        uses: ${{ matix.version }}
+        with:
+          node-version: 16.x
+          cache: 'yarn'
+
+      - name: sub project
+        uses: ${{ matix.version }}
         with:
           node-version: 16.x
           cache: 'yarn'
           cache-dependency-path: ./sub/yarn.lock
-
-      - name: Run a multi-line script
-        run: |
-          node --version
-          yarn install
-          node main.js
-        working-directory: sub
+          
+      - name: few project
+        uses: ${{ matix.version }}
+        with:
+          node-version: 16.x
+          cache: 'yarn'
+          cache-dependency-path: ./yarn.lock ./sub/yarn.lock
