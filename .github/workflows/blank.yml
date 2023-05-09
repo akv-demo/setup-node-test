@@ -14,6 +14,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - run: ls -la
+        name: .
+
+      - run: ls -la sub
+        name: sub
+
       - name: root project v3
         uses: actions/setup-node@v3
         with:
