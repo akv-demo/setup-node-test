@@ -32,7 +32,16 @@ jobs:
         with:
           node-version: 16.x
           cache: 'yarn'
-          cache-dependency-path: sub2/yarn.lock sub/yarn.lock
+          cache-dependency-path: |
+            sub2/yarn.lock
+            sub/yarn.lock
+
+      - name: glob project v3
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          cache: 'yarn'
+          cache-dependency-path: '**/yarn.lock'
           
       - name: root project project-dir
         uses: akv-platform/setup-node@project-dir
@@ -47,9 +56,18 @@ jobs:
           cache: 'yarn'
           cache-dependency-path: ./sub/yarn.lock
           
-      - name: few project project-dir
+      - name: few projects project-dir
         uses: akv-platform/setup-node@project-dir
         with:
           node-version: 16.x
           cache: 'yarn'
-          cache-dependency-path: sub2/yarn.lock sub/sub/yarn.lock
+          cache-dependency-path: |
+            sub2/yarn.lock
+            sub/sub/yarn.lock
+
+      - name: glob project-dir
+        uses: akv-platform/setup-node@project-dir
+        with:
+          node-version: 16.x
+          cache: 'yarn'
+          cache-dependency-path: '**/yarn.lock'
