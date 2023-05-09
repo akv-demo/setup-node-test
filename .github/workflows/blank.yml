@@ -19,20 +19,20 @@ jobs:
 
 
       - name: root project
-        uses: ${{ matix.version }}
+        uses: ${{ matrix.version }}
         with:
           node-version: 16.x
           cache: 'yarn'
 
       - name: sub project
-        uses: ${{ matix.version }}
+        uses: ${{ matrix.version }}
         with:
           node-version: 16.x
           cache: 'yarn'
           cache-dependency-path: ./sub/yarn.lock
           
       - name: few project
-        uses: ${{ matix.version }}
+        uses: ${{ matrix.version }}
         with:
           node-version: 16.x
           cache: 'yarn'
