@@ -14,12 +14,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - run: ls -la
-        name: .
-
-      - run: ls -la sub
-        name: sub
-
       - name: root project v3
         uses: actions/setup-node@v3
         with:
@@ -38,7 +32,7 @@ jobs:
         with:
           node-version: 16.x
           cache: 'yarn'
-          cache-dependency-path: ./yarn.lock ./sub/yarn.lock
+          cache-dependency-path: sub2/yarn.lock sub/yarn.lock
           
       - name: root project project-dir
         uses: akv-platform/setup-node@project-dir
@@ -58,4 +52,4 @@ jobs:
         with:
           node-version: 16.x
           cache: 'yarn'
-          cache-dependency-path: ./yarn.lock ./sub/yarn.lock
+          cache-dependency-path: sub2/yarn.lock sub/sub/yarn.lock
