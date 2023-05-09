@@ -9,30 +9,46 @@ on:
 
 jobs:
   build:
-    strategy:
-      matrix:
-        version: [actions/setup-node@v3, akv-platform/setup-node@project-dir]
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
 
-
-      - name: root project
-        uses: ${{ matrix.version }}
+      - name: root project v3
+        uses: actions/setup-node@v3
         with:
           node-version: 16.x
           cache: 'yarn'
 
-      - name: sub project
-        uses: ${{ matrix.version }}
+      - name: sub project v3
+        uses: actions/setup-node@v3
         with:
           node-version: 16.x
           cache: 'yarn'
           cache-dependency-path: ./sub/yarn.lock
           
-      - name: few project
-        uses: ${{ matrix.version }}
+      - name: few project v3
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          cache: 'yarn'
+          cache-dependency-path: ./yarn.lock ./sub/yarn.lock
+          
+      - name: root project project-dir
+        uses: akv-platform/setup-node@project-dir
+        with:
+          node-version: 16.x
+          cache: 'yarn'
+
+      - name: sub project project-dir
+        uses: akv-platform/setup-node@project-dir
+        with:
+          node-version: 16.x
+          cache: 'yarn'
+          cache-dependency-path: ./sub/yarn.lock
+          
+      - name: few project project-dir
+        uses: akv-platform/setup-node@project-dir
         with:
           node-version: 16.x
           cache: 'yarn'
