@@ -43,21 +43,21 @@ jobs:
           cache: 'yarn'
           cache-dependency-path: '**/yarn.lock'
           
-      - name: root project project-dir
-        uses: akv-platform/setup-node@project-dir
+      - name: root project multiple-yarn-dirs
+        uses: akv-platform/setup-node@multiple-yarn-dirs
         with:
           node-version: 16.x
           cache: 'yarn'
 
-      - name: sub project project-dir
-        uses: akv-platform/setup-node@project-dir
+      - name: sub project multiple-yarn-dirs
+        uses: akv-platform/setup-node@multiple-yarn-dirs
         with:
           node-version: 16.x
           cache: 'yarn'
           cache-dependency-path: ./sub/yarn.lock
           
-      - name: few projects project-dir
-        uses: akv-platform/setup-node@project-dir
+      - name: few projects multiple-yarn-dirs
+        uses: akv-platform/setup-node@multiple-yarn-dirs
         with:
           node-version: 16.x
           cache: 'yarn'
@@ -66,7 +66,7 @@ jobs:
             sub/sub/yarn.lock
 
       - name: glob project-dir
-        uses: akv-platform/setup-node@project-dir
+        uses: akv-platform/setup-node@multiple-yarn-dirs
         with:
           node-version: 16.x
           cache: 'yarn'
