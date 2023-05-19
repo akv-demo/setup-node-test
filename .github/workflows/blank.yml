@@ -63,7 +63,7 @@ jobs:
           cache: 'yarn'
           cache-dependency-path: |
             sub2/yarn.lock
-            sub/sub/yarn.lock
+            sub/yarn.lock
 
       - name: glob project-dir
         uses: akv-platform/setup-node@project-dir
