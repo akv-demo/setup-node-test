@@ -67,7 +67,7 @@ jobs:
           yarn install
           
       - name: Setup Node
-        uses: akv-platform/setup-node@project-dir
+        uses: akv-platform/setup-node@yarn-perfomance
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
