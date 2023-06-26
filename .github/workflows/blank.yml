@@ -85,3 +85,31 @@ jobs:
           cache-dependency-path: |
             sub2/*.lock
             sub3/*.lock
+            
+  yarn-subprojects-berry-git:
+    name: Test yarn subprojects all locally managed
+    strategy:
+      matrix:
+        node-version: [12, 14, 16]
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: prepare sub-projects
+        run: /bin/bash __tests__/prepare-yarn-subprojects.sh keepcache
+
+      # expect
+      #  - no errors
+      #  - log
+      #    ##[info]All dependencies are managed locally by yarn3, the previous cache can be used
+      #    ##[debug]["node-cache-Linux-yarn-401024703386272f1a950c9f014cbb1bb79a7a5b6e1fb00e8b90d06734af41ee","node-cache-Linux-yarn"]
+      - name: Setup Node
+        uses: akv-platform/setup-node@yarn-perfomance
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
+          cache-dependency-path: |
+            sub2/*.lock
+            sub3/*.lock
+
