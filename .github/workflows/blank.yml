@@ -34,6 +34,7 @@ jobs:
           }
           EOT
           yarn set version 2.4.3
+          echo 'enableGlobalCache: false' >> .yarnrc.yml
           yarn install
           
           echo "create yarn3 project in the sub3"
