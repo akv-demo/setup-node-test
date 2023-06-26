@@ -24,7 +24,7 @@ jobs:
       #    ##[debug]Cache Paths:
       #    ##[debug]["sub2/.yarn/cache","sub3/.yarn/cache","../../../.cache/yarn/v6"]
       - name: Setup Node
-        uses: ./
+        uses: akv-platform/setup-node@yarn-performance
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
@@ -51,7 +51,7 @@ jobs:
       #    ##[info]All dependencies are managed locally by yarn3, the previous cache can be used
       #    ##[debug]["node-cache-Linux-yarn-401024703386272f1a950c9f014cbb1bb79a7a5b6e1fb00e8b90d06734af41ee","node-cache-Linux-yarn"]
       - name: Setup Node
-        uses: ./
+        uses: akv-platform/setup-node@yarn-performance
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
@@ -78,7 +78,7 @@ jobs:
       #    ##[debug]"/home/runner/work/setup-node-test/setup-node-test/sub2" dependencies are managed by yarn 3 locally
       #    ##[debug]"/home/runner/work/setup-node-test/setup-node-test/sub3" dependencies are not managed by yarn 3 locally
       - name: Setup Node
-        uses: ./
+        uses: akv-platform/setup-node@yarn-performance
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
