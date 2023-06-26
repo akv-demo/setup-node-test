@@ -34,7 +34,7 @@ jobs:
           }
           EOT
           yarn set version 2.4.3
-          #echo 'enableGlobalCache: false' >> .yarnrc.yml
+          echo 'enableGlobalCache: false' >> .yarnrc.yml
           yarn install
           rm -rf .yarn/cache
           
