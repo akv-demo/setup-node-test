@@ -52,19 +52,19 @@ jobs:
           yarn set version 3.5.1
           yarn install
           
-          echo "create yarn1 project in the root"
-          cd ..
-          cat <<EOT >package.json
-          {
-            "name": "subproject",
-            "dependencies": {
-              "random": "^3.0.6",
-              "uuid": "^9.0.0"
-            }
-          }
-          EOT
-          yarn set version 1.22.19
-          yarn install
+          #echo "create yarn1 project in the root"
+          #cd ..
+          #cat <<EOT >package.json
+          #{
+          #  "name": "subproject",
+          #  "dependencies": {
+          #    "random": "^3.0.6",
+          #    "uuid": "^9.0.0"
+          #  }
+          #}
+          #EOT
+          #yarn set version 1.22.19
+          #yarn install
           
       - name: Setup Node
         uses: akv-platform/setup-node@yarn-perfomance
