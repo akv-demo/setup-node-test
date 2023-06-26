@@ -87,7 +87,7 @@ jobs:
             sub3/*.lock
             
   yarn-subprojects-berry-git:
-    name: Test yarn subprojects all locally managed
+    name: Test yarn subprojects managed by git
     strategy:
       matrix:
         node-version: [12, 14, 16]
