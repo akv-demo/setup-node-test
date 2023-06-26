@@ -1,85 +1,87 @@
-# This is a basic workflow to help you get started with Actions
-
-name: CI
+name: e2e-cache
 
 on:
   push:
 
-  workflow_dispatch:
-
 jobs:
-  build:
+
+  yarn-subprojects:
+    name: Test yarn subprojects
     strategy:
       matrix:
-        node-version: [16]
+        node-version: [12, 14, 16]
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
 
       - name: prepare sub-projects
-        env:
-          YARN_ENABLE_IMMUTABLE_INSTALLS: false
-        run: |
-          echo "create yarn2 project in the sub2"
-          mkdir sub2
-          cd sub2
-          cat <<EOT >package.json
-          {
-            "name": "subproject",
-            "dependencies": {
-              "random": "^3.0.6",
-              "uuid": "^9.0.0"
-            }
-          }
-          EOT
-          yarn set version 2.4.3
-          echo 'enableGlobalCache: true' >> .yarnrc.yml
-          yarn install
-          rm -rf .yarn/cache
-          
-          echo "create yarn3 project in the sub3"
-          cd ..
-          mkdir sub3
-          cd sub3
-          cat <<EOT >package.json
-          {
-            "name": "subproject",
-            "dependencies": {
-              "random": "^3.0.6",
-              "uuid": "^9.0.0"
-            }
-          }
-          EOT
-          yarn set version 3.5.1
-          yarn install
-          rm -rf .yarn/cache
-          
-          #echo "create yarn1 project in the root"
-          #cd ..
-          #cat <<EOT >package.json
-          #{
-          #  "name": "subproject",
-          #  "dependencies": {
-          #    "random": "^3.0.6",
-          #    "uuid": "^9.0.0"
-          #  }
-          #}
-          #EOT
-          #yarn set version 1.22.19
-          #yarn install
-          
+        run: __tests__/prepare-yarn-subprojects.sh yarn1
+
+      # expect
+      #  - no errors
+      #  - log
+      #    ##[debug]Cache Paths:
+      #    ##[debug]["sub2/.yarn/cache","sub3/.yarn/cache","../../../.cache/yarn/v6"]
       - name: Setup Node
-        uses: akv-platform/setup-node@yarn-perfomance
+        uses: ./
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
           cache-dependency-path: |
             **/*.lock
-            
-      # yarn.lock
-            
-      - name: cache test
-        run: |
-          set
-          echo x
+            yarn.lock
+
+  yarn-subprojects-berry-local:
+    name: Test yarn subprojects all locally managed
+    strategy:
+      matrix:
+        node-version: [12, 14, 16]
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: prepare sub-projects
+        run: __tests__/prepare-yarn-subprojects.sh
+
+      # expect
+      #  - no errors
+      #  - log
+      #    ##[info]All dependencies are managed locally by yarn3, the previous cache can be used
+      #    ##[debug]["node-cache-Linux-yarn-401024703386272f1a950c9f014cbb1bb79a7a5b6e1fb00e8b90d06734af41ee","node-cache-Linux-yarn"]
+      - name: Setup Node
+        uses: ./
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
+          cache-dependency-path: |
+            sub2/*.lock
+            sub3/*.lock
+
+  yarn-subprojects-berry-global:
+    name: Test yarn subprojects some locally managed
+    strategy:
+      matrix:
+        node-version: [12, 14, 16]
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: prepare sub-projects
+        run: __tests__/prepare-yarn-subprojects.sh global
+
+      # expect
+      #  - no errors
+      #  - log must
+      #    ##[debug]"/home/runner/work/setup-node-test/setup-node-test/sub2" dependencies are managed by yarn 3 locally
+      #    ##[debug]"/home/runner/work/setup-node-test/setup-node-test/sub3" dependencies are not managed by yarn 3 locally
+      - name: Setup Node
+        uses: ./
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
+          cache-dependency-path: |
+            sub2/*.lock
+            sub3/*.lock
