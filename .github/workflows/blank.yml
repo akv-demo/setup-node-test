@@ -102,8 +102,9 @@ jobs:
       # expect
       #  - no errors
       #  - log
-      #    ##[info]All dependencies are managed locally by yarn3, the previous cache can be used
-      #    ##[debug]["node-cache-Linux-yarn-401024703386272f1a950c9f014cbb1bb79a7a5b6e1fb00e8b90d06734af41ee","node-cache-Linux-yarn"]
+      #    [debug]"/home/runner/work/setup-node-test/setup-node-test/sub2" has .yarn/cache - dependencies are kept in the repository
+      #    [debug]"/home/runner/work/setup-node-test/setup-node-test/sub3" has .yarn/cache - dependencies are kept in the repository
+      #    [debug]["node-cache-Linux-yarn-401024703386272f1a950c9f014cbb1bb79a7a5b6e1fb00e8b90d06734af41ee"]
       - name: Setup Node
         uses: akv-platform/setup-node@yarn-perfomance
         with:
