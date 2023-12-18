@@ -20,6 +20,4 @@ jobs:
           node-version: 18.x
           cache: 'npm'
 
-      - name: Run a multi-line script
-        run: |
-          npm install
+      - run: npm install --verbose
