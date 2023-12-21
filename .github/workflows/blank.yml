@@ -20,4 +20,6 @@ jobs:
           node-version: 18.x
           cache: 'npm'
 
-      - run: npm ci --verbose
+      - run: |
+          npm config get cache
+          npm ci --verbose
