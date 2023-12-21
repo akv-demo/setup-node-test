@@ -1,9 +1,5 @@
 {
-  "name": "issue-835",
-  "workspaces": [
-    "packages/a",
-    "packages/b"
-  ],
+  "name": "b",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -21,6 +17,6 @@
   },
   "homepage": "https://github.com/akv-demo/setup-node-test#readme",
   "dependencies": {
-    "font-awesome": "^4.7.0"
+    "abbrev": "^2.0.0"
   }
 }
