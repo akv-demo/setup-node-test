@@ -8,8 +8,13 @@ on:
   workflow_dispatch:
 
 jobs:
+
   build:
     runs-on: ubuntu-latest
+
+    env:
+      nodejs_version: 18.x
+      repo_dir: sub
 
     steps:
       - uses: actions/checkout@v3
@@ -17,7 +22,9 @@ jobs:
       - name: Use Node
         uses: actions/setup-node@v2
         with:
-          node-version: 18.x
+          node-version: ${{ env.nodejs_version }}
           cache: 'npm'
+          cache-dependency-path: ${{ env.repo_dir }}/package-lock.json
 
-      - run: npm ci --verbose
+      - run: |
+          cd $repo_dir && npm ci --verbose

@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/akv-demo/setup-node-test#readme",
   "dependencies": {
+    "akv-demo-pkg1": "^1.0.0",
     "font-awesome": "^4.7.0"
   }
 }
